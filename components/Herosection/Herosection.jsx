@@ -4,11 +4,8 @@ import { ParticleBackground } from "./Partical-section"
 
 export default function HeroSection() {
   return (
-    <main className="relative min-h-[100svh] overflow-hidden">
-      {/* Enhanced combined background */}
+    <main className="relative min-h-[100svh]">
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="bg-crystal absolute inset-0" />
-        <div className="bg-shards absolute -inset-10 opacity-50 mix-blend-screen" />
         <ParticleBackground 
           color="#00ffff"
           count={180}
@@ -22,6 +19,7 @@ export default function HeroSection() {
       
       <Hero />
       <Partners />
+      
     </main>
   )
 }

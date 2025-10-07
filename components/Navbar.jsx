@@ -9,9 +9,9 @@ export function Navbar() {
 
   return (
     <header className={cn(
-      "sticky top-0 z-50 bg-transparent",
-      "before:absolute before:inset-0 before:-z-10 before:bg-black/20 before:backdrop-blur-xl",
-      "after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-b after:from-black/20 after:to-transparent"
+      "fixed top-0 left-0 right-0 z-50",
+      "bg-black/10 backdrop-blur-xl border-b border-white/5",
+      "transition-all duration-300"
     )}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo */}

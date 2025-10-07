@@ -42,11 +42,11 @@ function ParticleBackgroundBase({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none fixed inset-0 -z-10 ${className}`}
+      className={`pointer-events-none absolute inset-0 -z-10 ${className}`}
       style={{
         background: `linear-gradient(180deg, ${gradientStart} 0%, ${gradientEnd} 100%)`,
-        width: "100vw",
-        minHeight: "100svh", // ensure full viewport coverage using svh to avoid mobile viewport quirks
+        width: "100%",
+        height: "100%",
       }}
     >
       <Particles
@@ -100,7 +100,7 @@ function ParticleBackgroundBase({
           },
           particles: {
             number: {
-              value: isMobile ? 100 : count, // reduced for mobile to ensure better connections
+              value: isMobile ? 50 : count, // reduced for mobile to ensure better connections
               density: {
                 enable: true,
                 area: isMobile ? 600 : densityArea, // reduced area to force closer particles
@@ -176,11 +176,11 @@ function ParticleBackgroundBase({
         // Ensure canvas covers wrapper fully
         style={{
           width: "100%",
-          height: "100vh",
-          position: "fixed",
+          height: "100%",
+          position: "absolute",
           top: 0,
           left: 0,
-          pointerEvents: "auto" // re-enabled interactions on mobile
+          pointerEvents: "auto"
         }}
       />
     </div>
