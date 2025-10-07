@@ -7,18 +7,30 @@
  *   # or: pnpm add react-tsparticles tsparticles-slim
  */
 
-import { useCallback, memo } from "react"
+import { useCallback, memo, useEffect, useState } from "react"
 import Particles from "react-tsparticles"
 import { loadSlim } from "tsparticles-slim"
 
 function ParticleBackgroundBase({
   color = "#00ffff",
-  count = 120, // reduced count
+  count = 100, // fixed lower count
   gradientStart = "#0a1e3f",
   gradientEnd = "#000000",
   className = "",
-  densityArea = 1000, // increased area for better distribution
+  densityArea = 1200, // increased area for better scatter
 } = {}) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine)
   }, [])
@@ -88,51 +100,67 @@ function ParticleBackgroundBase({
           },
           particles: {
             number: {
-              value: count,
+              value: isMobile ? 50 : count, // reduce particles on mobile
               density: {
                 enable: true,
-                area: densityArea,
-                factor: 1500 // increased for better spread
+                area: isMobile ? 900 : densityArea,
+                factor: isMobile ? 1500 : 2000
               },
             },
             color: { value: color },
             links: {
               enable: true,
               color,
-              distance: 200, // increased distance between connections
-              opacity: 0.3,
-              width: 0.8,
+              distance: isMobile ? 100 : 150,
+              opacity: 0.4,
+              width: isMobile ? 0.8 : 1,
               triangles: {
                 enable: false
               }
             },
             move: {
               enable: true,
-              speed: 1,
+              speed: isMobile ? 0.8 : 1.2,
               direction: "none",
-              random: true, // enable random movement
+              random: false,
               straight: false,
               outModes: {
-                default: "bounce"
+                default: "bounce",
               },
               attract: {
-                enable: true,
-                rotateX: 1200, // increased rotation
-                rotateY: 1200
+                enable: false
               }
             },
             opacity: {
-              value: 0.6,
-              random: true, // randomize opacity
+              value: 0.7,
+              random: false,
               animation: {
-                enable: true,
-                speed: 0.5,
-                minimumValue: 0.3,
-                sync: false
+                enable: false // disabled animation for consistent look
               }
             },
             size: {
-              value: { min: 0.8, max: 1.5 }
+              value: { min: isMobile ? 0.8 : 1, max: isMobile ? 1.5 : 2 },
+              random: true
+            },
+            interactivity: {
+              modes: {
+                repulse: {
+                  distance: isMobile ? 100 : 150,
+                  duration: 0.4,
+                  speed: isMobile ? 0.8 : 1,
+                  factor: isMobile ? 15 : 20
+                },
+                grab: {
+                  distance: isMobile ? 100 : 150,
+                  links: {
+                    opacity: 0.6,
+                    color: "#00ffff"
+                  }
+                },
+                push: {
+                  quantity: 1 // limit new particles on click
+                }
+              }
             }
           }
         }}
@@ -143,7 +171,7 @@ function ParticleBackgroundBase({
           position: "fixed",
           top: 0,
           left: 0,
-          pointerEvents: "auto" // Enable mouse interactions
+          pointerEvents: isMobile ? "none" : "auto" // disable interactions on mobile for better performance
         }}
       />
     </div>
