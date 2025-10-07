@@ -100,35 +100,44 @@ function ParticleBackgroundBase({
           },
           particles: {
             number: {
-              value: isMobile ? 50 : count, // reduce particles on mobile
+              value: isMobile ? 100 : count, // reduced for mobile to ensure better connections
               density: {
                 enable: true,
-                area: isMobile ? 900 : densityArea,
-                factor: isMobile ? 1500 : 2000
+                area: isMobile ? 600 : densityArea, // reduced area to force closer particles
+                factor: isMobile ? 1000 : 2000
               },
             },
-            color: { value: color },
             links: {
               enable: true,
               color,
-              distance: isMobile ? 100 : 150,
-              opacity: 0.4,
-              width: isMobile ? 0.8 : 1,
+              distance: isMobile ? 150 : 150, // increased distance for mobile to ensure connections
+              opacity: isMobile ? 0.6 : 0.4, // increased opacity for mobile
+              width: isMobile ? 1.2 : 1, // thicker lines on mobile
               triangles: {
                 enable: false
-              }
+              },
+              frequency: 1 // force maximum connections
             },
             move: {
               enable: true,
-              speed: isMobile ? 0.8 : 1.2,
+              speed: isMobile ? 0.6 : 1.2, // slower on mobile for better connections
               direction: "none",
-              random: false,
+              random: false, // disabled random movement for more consistent connections
               straight: false,
               outModes: {
                 default: "bounce",
+                top: "bounce",
+                bottom: "bounce",
+                left: "bounce",
+                right: "bounce"
               },
               attract: {
-                enable: false
+                enable: true, // enabled attract to keep particles closer
+                distance: 200,
+                rotate: {
+                  x: 600,
+                  y: 600
+                }
               }
             },
             opacity: {
@@ -139,7 +148,7 @@ function ParticleBackgroundBase({
               }
             },
             size: {
-              value: { min: isMobile ? 0.8 : 1, max: isMobile ? 1.5 : 2 },
+              value: { min: isMobile ? 1 : 1, max: isMobile ? 2 : 2 }, // increased size for mobile
               random: true
             },
             interactivity: {
@@ -171,7 +180,7 @@ function ParticleBackgroundBase({
           position: "fixed",
           top: 0,
           left: 0,
-          pointerEvents: isMobile ? "none" : "auto" // disable interactions on mobile for better performance
+          pointerEvents: "auto" // re-enabled interactions on mobile
         }}
       />
     </div>
