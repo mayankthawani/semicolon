@@ -245,4 +245,17 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  @keyframes timeline-pulse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(1000%);
+    }
+  }
+
+  .animate-timeline-pulse {
+    animation: timeline-pulse 8s linear infinite;
+  }
 }

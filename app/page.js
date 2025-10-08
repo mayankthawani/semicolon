@@ -5,6 +5,9 @@ import { Navbar } from "@/components/Navbar";
 import { Divider } from "@/components/ui/Divider";
 import { Mission } from "@/components/Mission";
 import { JoinMovement } from "@/components/Joinmovement";
+import { EventProtocol } from "@/components/EventProtocol";
+import { Faqs } from "@/components/Faqs";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -13,8 +16,14 @@ export default function Home() {
       <HeroSection />
       <Divider />
       <Mission />
-    
+      
       <JoinMovement />
+     
+      <EventProtocol />
+      
+      <Faqs />
+      <Divider />
+      <Footer />
     </main>
   );
 }

@@ -37,9 +37,9 @@ export function Mission() {
             {/* Stats - Made more compact on mobile */}
             <div className="grid grid-cols-3 gap-2 md:gap-4 pt-4 md:pt-6">
               {([
-                { value: "500+", label: "Participants" },
-                { value: "24hrs", label: "of Coding" },
-                { value: "₹50K", label: "Prize Pool" },
+                { value: "200+", label: "Participants" },
+                { value: "8hrs", label: "of Coding" },
+                { value: "₹20K", label: "Prize Pool" },
               ]).map((stat) => (
                 <div key={stat.label} className="text-center p-2 md:p-3 bg-black/20 rounded-lg backdrop-blur-sm">
                   <div className="text-base md:text-xl font-bold text-[#00ffff]">{stat.value}</div>
@@ -54,7 +54,7 @@ export function Mission() {
             <div className="absolute inset-0 bg-[#00ffff]/10 rounded-xl md:rounded-2xl blur-2xl group-hover:bg-[#00ffff]/15 transition-all duration-300" />
             <div className="relative bg-gray-900/50 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 overflow-hidden">
               <img
-                src="/event-image.jpg" // Add your event image here
+                src="/event.jpg" // Add your event image here
                 alt="Semicolon Event"
                 className="w-full aspect-[16/9] md:aspect-[4/3] object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               />
