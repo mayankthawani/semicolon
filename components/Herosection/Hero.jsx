@@ -6,6 +6,17 @@ export function Hero() {
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       <div className="mx-auto max-w-6xl w-full px-3 sm:px-4 md:px-6 py-6 md:py-0 text-center">
         <div className="space-y-3 sm:space-y-4 md:space-y-8">
+          {/* Sponsor Section */}
+          <div className="flex items-center justify-center gap-3 animate-fade-in">
+            <span className="text-md text-gray-400">Powered by</span>
+            <img 
+              src="/unstop.png" 
+              alt="Unstop" 
+              className="h-6 md:h-7 object-contain border-2 border-white rounded 
+                        hover:border-white/40 hover:brightness-150 transition-all duration-200"
+            />
+          </div>
+
           {/* Get Ready Text - Adjusted for better visibility on all screens */}
           <p className="text-sm xs:text-base sm:text-lg md:text-base 
                        text-[#00ffff]/80 font-medium tracking-wider animate-fade-in 

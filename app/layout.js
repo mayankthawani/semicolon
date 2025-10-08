@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Semicolon 11.0",
   description: "Code. Collaborate. Conquer.",
-  metadataBase: new URL('https://your-domain.com'), // Replace with your actual domain
+  metadataBase: new URL('https://semicolon-11.vercel.app/'), // Replace with your actual domain
   openGraph: {
     type: 'website',
     title: "Semicolon 11.0",
