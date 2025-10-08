@@ -150,7 +150,7 @@ export function Footer() {
             © 2025 TEAM SRM HACKATHON, SRMIST KTR. All rights reserved.
             <br />
             <span className="text-xs opacity-75">
-              Built by TEAM SRM HACKATHON Team
+              Built by TEAM SRM HACKATHON 
             </span>
           </p>
         </div>
