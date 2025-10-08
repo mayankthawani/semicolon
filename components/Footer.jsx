@@ -17,7 +17,7 @@ export function Footer() {
         { label: "Email", value: "srmhackathon5@gmail.com" },
         { label: "Phone", value: "+91 6381 949 898" },
         
-        { label: "Phone", value: "+91 8248537950" },
+       
       ]
     },
     {
