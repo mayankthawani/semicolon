@@ -9,7 +9,7 @@ const PrizeCards = [
   { title: "₹20,000", subtitle: "Prize Pool", icon: DollarSign },
   { title: "Goodies", subtitle: "Exciting Rewards", icon: Gift },
   { title: "Rounds", subtitle: "Multiple Stages", icon: Target },
-  { title: "Teams", subtitle: "Solo & Group", icon: Users },
+  { title: "Teams", subtitle: "Solo Participation", icon: Users },
 ]
 
 const FeatureCards = [

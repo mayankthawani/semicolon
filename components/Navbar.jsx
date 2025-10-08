@@ -2,10 +2,23 @@
 
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const handleScroll = useCallback((e, sectionId) => {
+    e.preventDefault()
+    const element = document.getElementById(sectionId)
+    element?.scrollIntoView({ behavior: 'smooth' })
+    setIsMobileMenuOpen(false)
+  }, [])
+
+  const navItems = [
+    { label: "Home", href: "home" },
+    { label: "Community", href: "details" },
+    { label: "About", href: "about" }
+  ]
 
   return (
     <header className={cn(
@@ -37,14 +50,14 @@ export function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8">
-          {["Home", "Community", "About"].map((item) => (
-            <li key={item}>
-              <Link 
-                href="#" 
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <button 
+                onClick={(e) => handleScroll(e, item.href)}
                 className="text-sm text-gray-300 hover:text-[#00ffff] transition-colors duration-200"
               >
-                {item}
-              </Link>
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>
@@ -59,30 +72,34 @@ export function Navbar() {
           REGISTER
         </Link>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Single dropdown version */}
         <div className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-xl transition-transform duration-300 md:hidden",
-          "flex flex-col items-center justify-center gap-8",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "absolute top-full left-0 right-0 transition-all duration-300 md:hidden",
+          "border-b border-white/10 bg-[#0a1e3f]/95 backdrop-blur-md",
+          "flex flex-col items-center py-4",
+          isMobileMenuOpen 
+            ? "translate-y-0 opacity-100 pointer-events-auto" 
+            : "-translate-y-4 opacity-0 pointer-events-none"
         )}>
-          {["Home", "Community", "About"].map((item) => (
-            <Link 
-              key={item}
-              href="#" 
-              className="text-lg text-gray-300 hover:text-[#00ffff] transition-colors duration-200"
+          <div className="flex flex-col items-center gap-4 w-full px-6">
+            {navItems.map((item) => (
+              <button 
+                key={item.label}
+                onClick={(e) => handleScroll(e, item.href)}
+                className="text-base text-gray-300 hover:text-[#00ffff] transition-colors duration-200 py-2 w-full text-center"
+              >
+                {item.label}
+              </button>
+            ))}
+            <Link
+              href="#register"
+              className="w-full mt-2 rounded-md bg-[#00ffff]/10 px-6 py-2.5 text-base 
+                       font-medium text-[#00ffff] ring-1 ring-[#00ffff]/30 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {item}
+              REGISTER
             </Link>
-          ))}
-          <Link
-            href="#register"
-            className="mt-4 rounded-md bg-[#00ffff]/10 px-6 py-2.5 text-base 
-                     font-medium text-[#00ffff] ring-1 ring-[#00ffff]/30"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            REGISTER
-          </Link>
+          </div>
         </div>
       </nav>
     </header>
