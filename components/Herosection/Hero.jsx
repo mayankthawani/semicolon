@@ -10,7 +10,7 @@ export function Hero() {
           <p className="text-sm xs:text-base sm:text-lg md:text-base 
                        text-[#00ffff]/80 font-medium tracking-wider animate-fade-in 
                        px-1 mx-auto max-w-[90%] sm:max-w-none">
-            GET READY FOR THE BIGGEST TECH MEETUP
+            GET READY FOR THE BIGGEST TECH EVENT
           </p>
 
           {/* Main Heading - Improved desktop scaling */}
