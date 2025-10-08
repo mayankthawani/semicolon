@@ -16,7 +16,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo */}
         <div className="flex items-center gap-3 z-50">
-          <div aria-hidden className="size-8 rounded-lg bg-[#00ffff]/20 ring-1 ring-[#00ffff]/30 backdrop-blur-sm" />
+          <img className="w-10 h-10" src="/hack-logo.png" alt="" />
           <span className="font-sans text-sm md:text-base font-medium tracking-wide text-white">
             TEAM SRM <span className="text-[#00ffff]">HACKATHON</span>
           </span>
