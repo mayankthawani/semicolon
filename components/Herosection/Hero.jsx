@@ -59,7 +59,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center 
                         animate-fade-in-up-delay mt-4 sm:mt-6 md:mt-12 px-2">
             <Link
-              href="#register"
+              href="https://unstop.com/p/semicolon-110-team-srm-hackathon-1571088"
               className="group relative inline-flex items-center justify-center 
                        overflow-hidden rounded-lg p-[1px] hover:cursor-pointer 
                        w-[90%] xs:w-[85%] sm:w-auto"

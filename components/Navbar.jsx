@@ -64,7 +64,7 @@ export function Navbar() {
 
         {/* Desktop Register Button */}
         <Link
-          href="#register"
+          href="https://unstop.com/p/semicolon-110-team-srm-hackathon-1571088"
           className="hidden md:inline-flex rounded-md bg-[#00ffff]/10 px-5 py-2 text-sm 
                    font-medium text-[#00ffff] ring-1 ring-[#00ffff]/30 hover:bg-[#00ffff]/20 
                    hover:ring-[#00ffff]/50 transition-all duration-200 backdrop-blur-sm"
@@ -92,7 +92,7 @@ export function Navbar() {
               </button>
             ))}
             <Link
-              href="#register"
+              href="https://unstop.com/p/semicolon-110-team-srm-hackathon-1571088"
               className="w-full mt-2 rounded-md bg-[#00ffff]/10 px-6 py-2.5 text-base 
                        font-medium text-[#00ffff] ring-1 ring-[#00ffff]/30 text-center"
               onClick={() => setIsMobileMenuOpen(false)}

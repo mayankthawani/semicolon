@@ -134,7 +134,7 @@ export function Footer() {
             </div>
 
             {/* Register Now Button */}
-            <a href="#register" className="block mt-6">
+            <a href="https://unstop.com/p/semicolon-110-team-srm-hackathon-1571088" className="block mt-6">
               <button className="w-full py-3 px-6 rounded-lg bg-[#00ffff]/10 border border-[#00ffff]/20 
                                text-[#00ffff] font-medium hover:bg-[#00ffff]/20 
                                transition-all duration-300">
